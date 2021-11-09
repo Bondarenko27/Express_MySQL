@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const db = require("./database");
 app.get("/",(req,res,next)=>{
-    db.execute("Select*From users"). then(([rows, metaData])=>{
-        const data={...rows[0]};
+    db.execute("Select usersName From users"). then(([rows, metaData])=>{
+        const data={rows};
         const parsedData = JSON.stringify(data);
         res.json(parsedData);
     })
